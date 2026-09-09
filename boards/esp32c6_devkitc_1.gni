@@ -47,6 +47,11 @@ qemu_esp32_partition_table_bin = ""
 # they are only actually linked into the kernel when agent_loop's app.conf sets
 # CONFIG_ENABLE_NET=y.
 board_deps = [
+  # Hand-vendored QMI8658 IMU driver (IniterWorker/qmi8658), plus
+  # dzamlo's zero-dependency bitfield 0.15.0 it depends on.
+  "//external/vendor/bitfield-0.15.0:bitfield",
+  "//external/vendor/qmi8658-0.1.0:qmi8658",
+
   "//external/vendor/enumset-1.1.13:enumset",
   "//external/vendor/esp-hal-1.1.1:esp_hal",
   "//external/vendor/esp-phy-0.2.0:esp_phy",
